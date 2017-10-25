@@ -18,10 +18,11 @@ class Organism(object):
 
 
 class Generation(object):
-    def __init__(self, org1, org2, index):
+    def __init__(self, org1, org2, index, time):
         self.org1 = org1
         self.org2 = org2
         self.index = index
+        self.time = time
 
     def next_gen(self):
         genome_next1 = ""
@@ -38,17 +39,18 @@ class Generation(object):
         print(genome_next1)
         print(genome_next2)
 
-        return Generation(org1=org_next1, org2=org_next2, index=(self.index+1))
+        return Generation(org1=org_next1, org2=org_next2, index=(self.index+1), time=self.time)
 
     def to_csv(self):
         output_dict = {
+            'time': self.time,
             'org1_x': self.org1.xyz[:, 0],
             'org1_y': self.org1.xyz[:, 1],
             'org1_z': self.org1.xyz[:, 2],
             'org2_x': self.org2.xyz[:, 0],
             'org2_y': self.org2.xyz[:, 1],
-            'org2_z': self.org2.xyz[:, 2],
+            'org2_z': self.org2.xyz[:, 2]
         }
 
         output_dataframe = pd.DataFrame(output_dict)
-        output_dataframe.to_csv("Outputs/generation_" + str(self.index) + ".csv")
+        output_dataframe.to_csv("Outputs/Generations/generation_" + str(self.index) + ".csv")
