@@ -16,7 +16,7 @@ x_dict = {
     'b': b,
     'c': c
 }
-pd.DataFrame(x_dict).to_csv('x.csv')
+pd.DataFrame(x_dict).to_csv('Outputs/x.csv', index=False, header=False)
 
 
 # Y
@@ -29,7 +29,7 @@ y_dict = {
     'b': b,
     'c': c
 }
-pd.DataFrame(y_dict).to_csv('y.csv')
+pd.DataFrame(y_dict).to_csv('Outputs/y.csv', index=False, header=False)
 
 
 # Z
@@ -42,4 +42,4 @@ z_dict = {
     'b': b,
     'c': c
 }
-pd.DataFrame(z_dict).to_csv('z.csv')
+pd.DataFrame(z_dict).to_csv('Outputs/z.csv', index=False, header=False)

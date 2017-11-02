@@ -1,5 +1,6 @@
-import helper
 import pandas as pd
+
+from Helpers import helper
 
 
 class Organism(object):

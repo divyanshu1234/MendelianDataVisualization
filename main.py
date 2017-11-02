@@ -1,15 +1,17 @@
 from tkinter.filedialog import askopenfilename
+
+import Helpers.helper as helper
 import pandas as pd
-import helper
-import organism
+
+from Helpers import organism
 
 input_filename = askopenfilename()
 input_dataframe = pd.read_csv(input_filename)
 
 
-helper.trans_data['A'] = input_dataframe[['acc_x', 'acc_y', 'acc_z']].as_matrix() * 20
+helper.trans_data['A'] = input_dataframe[['acc_x', 'acc_y', 'acc_z']].as_matrix() * 10
 helper.trans_data['R'] = input_dataframe[['rot_x', 'rot_y', 'rot_z']].as_matrix()
-helper.trans_data['I'] = input_dataframe['light_intensity'] / 200
+helper.trans_data['I'] = input_dataframe['light_intensity'] / input_dataframe['light_intensity'].max()
 time = input_dataframe['time']
 
 xyz_gen1 = input_dataframe[['h', 's', 'v']].as_matrix()
